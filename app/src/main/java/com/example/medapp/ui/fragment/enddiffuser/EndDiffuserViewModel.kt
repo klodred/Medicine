@@ -4,6 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.medapp.ui.fragment.enddiffuser.model.EndDiffuserInputValueType
+import com.example.medapp.ui.other.helper.CalculateHelper
+import com.example.medapp.ui.other.helper.model.EndDiffuserParams
+import com.example.medapp.ui.other.helper.model.Time
 import javax.inject.Inject
 
 // Торцевой диффузор
@@ -14,6 +17,12 @@ class EndDiffuserViewModel @Inject constructor(
 
 	private val _enabledButton = MutableLiveData<Boolean>()
 	override val enabledButton: LiveData<Boolean> = _enabledButton
+
+	private val _result = MutableLiveData<Time>()
+	override val result: LiveData<Time> = _result
+
+	private val _clear = MutableLiveData<Boolean>()
+	override val clear: LiveData<Boolean> = _clear
 
 	private var diameterLightSpot: Double? = null
 	private var laserPower: Double? = null
@@ -48,7 +57,18 @@ class EndDiffuserViewModel @Inject constructor(
 	}
 
 	override fun calculate() {
+		_result.value = CalculateHelper.calculateEndDiffuser(
+			EndDiffuserParams(
+				diameterLightSpot = diameterLightSpot ?: return,
+				laserPower = laserPower ?: return,
+				treatmentDose = treatmentDose ?: return,
+				energyLoss = energyLoss ?: return
+			)
+		)
+	}
 
+	override fun clear() {
+		_clear.value = true
 	}
 
 	private fun setButtonEnabled() {

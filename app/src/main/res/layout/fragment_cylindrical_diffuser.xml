@@ -1,121 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:orientation="vertical"
-	xmlns:app="http://schemas.android.com/apk/res-auto">
+	android:paddingTop="30dp"
+	app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-	<TextView
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginHorizontal="16dp"
-		style="@style/S16MediumBlack"
-		android:text="@string/cylindrical_diffuser_description"/>
-
-	<com.example.medapp.ui.widget.CustomInputView
-		android:id="@+id/civLightSpot"
-		android:layout_marginTop="30dp"
+	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		app:description="@string/cylindrical_diffuser_length"
-		app:designation="@string/designation_L"
-		app:unit="@string/units_sm"/>
+		android:orientation="vertical"
+		app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-	<View
-		android:layout_width="match_parent"
-		android:layout_height="2dp"
-		android:layout_marginTop="15dp"
-		android:background="@color/green_75_50_percent_transparent"/>
+		<TextView
+			style="@style/S16MediumBlack"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginHorizontal="16dp"
+			android:text="@string/cylindrical_diffuser_description" />
 
-	<com.example.medapp.ui.widget.CustomInputView
-		android:id="@+id/civLaserPower"
-		android:layout_marginTop="20dp"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		app:description="@string/common_laser_power"
-		app:designation="@string/designation_P"
-		app:unit="@string/units_mvt"/>
+		<com.example.medapp.ui.widget.CustomInputView
+			android:id="@+id/civLength"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="30dp"
+			app:description="@string/cylindrical_diffuser_length"
+			app:designation="@string/designation_L"
+			app:unit="@string/units_sm" />
 
-	<View
-		android:layout_width="match_parent"
-		android:layout_height="2dp"
-		android:layout_marginTop="15dp"
-		android:background="@color/green_75_50_percent_transparent"/>
+		<View
+			android:layout_width="match_parent"
+			android:layout_height="2dp"
+			android:layout_marginTop="15dp"
+			android:background="@color/green_75_50_percent_transparent" />
 
-	<com.example.medapp.ui.widget.CustomInputView
-		android:id="@+id/civS"
-		android:layout_marginTop="20dp"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		app:description="@string/common_treatment_dose"
-		app:designation="@string/designation_D"
-		app:unit="@string/units_joules_on_cm"/>
+		<com.example.medapp.ui.widget.CustomInputView
+			android:id="@+id/civLaserPower"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="20dp"
+			app:description="@string/common_laser_power"
+			app:designation="@string/designation_P"
+			app:unit="@string/units_mvt" />
 
-	<View
-		android:layout_width="match_parent"
-		android:layout_height="2dp"
-		android:layout_marginTop="15dp"
-		android:background="@color/green_75_50_percent_transparent"/>
+		<View
+			android:layout_width="match_parent"
+			android:layout_height="2dp"
+			android:layout_marginTop="15dp"
+			android:background="@color/green_75_50_percent_transparent" />
 
-	<com.example.medapp.ui.widget.CustomInputView
-		android:id="@+id/civTreatmentDose"
-		android:layout_marginTop="20dp"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		app:description="@string/common_treatment_dose"
-		app:designation="@string/designation_D"
-		app:unit="@string/units_joules_on_cm"/>
+		<com.example.medapp.ui.widget.CustomInputView
+			android:id="@+id/civDistance"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="20dp"
+			app:description="@string/cylindrical_diffuser_distance"
+			app:designation="@string/designation_R"
+			app:unit="@string/units_mm" />
 
-	<View
-		android:layout_width="match_parent"
-		android:layout_height="2dp"
-		android:layout_marginTop="15dp"
-		android:background="@color/green_75_50_percent_transparent"/>
+		<View
+			android:layout_width="match_parent"
+			android:layout_height="2dp"
+			android:layout_marginTop="15dp"
+			android:background="@color/green_75_50_percent_transparent" />
 
-	<com.example.medapp.ui.widget.CustomInputView
-		android:id="@+id/civEnergyLoss"
-		android:layout_marginTop="20dp"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		app:description="@string/common_energy_loss"
-		app:designation=""
-		app:unit="@string/units_procent"/>
+		<com.example.medapp.ui.widget.CustomInputView
+			android:id="@+id/civTreatmentDose"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="20dp"
+			app:description="@string/common_treatment_dose"
+			app:designation="@string/designation_D"
+			app:unit="@string/units_joules_on_cm" />
 
-	<TextView
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		style="@style/S13MediumGrey79"
-		android:text="@string/spherical_diffuser_treatment_dose_restrictions"
-		android:layout_marginTop="12dp"
-		android:layout_marginStart="16dp"/>
+		<View
+			android:layout_width="match_parent"
+			android:layout_height="2dp"
+			android:layout_marginTop="15dp"
+			android:background="@color/green_75_50_percent_transparent" />
 
-	<TextView
-		android:id="@+id/tvCalculate"
-		android:layout_width="match_parent"
-		style="@style/GreenButton"
-		android:layout_marginTop="30dp"
-		android:layout_marginHorizontal="16dp"
-		android:text="@string/common_calculate"/>
+		<com.example.medapp.ui.widget.CustomInputView
+			android:id="@+id/civEnergyLoss"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="20dp"
+			app:description="@string/common_energy_loss"
+			app:designation=""
+			app:unit="@string/units_procent" />
 
-	<TextView
-		android:id="@+id/tvClear"
-		android:layout_width="match_parent"
-		style="@style/BlackButton"
-		android:layout_marginTop="20dp"
-		android:layout_marginHorizontal="16dp"
-		android:text="@string/common_clear"/>
+		<TextView
+			android:id="@+id/tvCalculate"
+			style="@style/GreenButton"
+			android:layout_width="match_parent"
+			android:layout_marginHorizontal="16dp"
+			android:layout_marginTop="30dp"
+			android:text="@string/common_calculate" />
 
-	<View
-		android:layout_width="match_parent"
-		android:layout_height="6dp"
-		android:layout_marginTop="25dp"
-		android:background="@color/red_2E"/>
+		<TextView
+			android:id="@+id/tvClear"
+			style="@style/BlackButton"
+			android:layout_width="match_parent"
+			android:layout_marginHorizontal="16dp"
+			android:layout_marginTop="20dp"
+			android:text="@string/common_clear" />
 
-	<com.example.medapp.ui.widget.CustomResultView
-		android:id="@+id/crvTime"
-		android:layout_marginTop="20dp"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		app:title="@string/common_time" />
+		<View
+			android:layout_width="match_parent"
+			android:layout_height="6dp"
+			android:layout_marginTop="25dp"
+			android:background="@color/red_2E" />
 
-</LinearLayout>
+		<com.example.medapp.ui.widget.CustomResultView
+			android:id="@+id/crvTime"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="20dp"
+			app:title="@string/common_time" />
+	</LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

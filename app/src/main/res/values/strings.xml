@@ -19,7 +19,7 @@
 	<string name="end_diffuser_description">Расчет времени облучения для торцевого диффузора</string>
 
 	<!-- SphericalDiffuserFragment -->
-	<string name="spherical_diffuser_bubble_volume">Объем пузыря</string>
+	<string name="spherical_diffuser_bubble_volume">Объем мочевого пузыря</string>
 	<string name="spherical_diffuser_description">Расчет времени облучения для сферического диффузора</string>
 	<string name="spherical_diffuser_bubble_volume_restrictions">*до 500 мл</string>
 	<string name="spherical_diffuser_treatment_dose_restrictions">*можно вводить любые значения, но стандартные 10, 12, 15</string>
@@ -28,15 +28,17 @@
 	<string name="cylindrical_diffuser_length">Длина диффузора</string>
 	<string name="cylindrical_diffuser_bubble_volume">Объем пузыря</string>
 	<string name="cylindrical_diffuser_description">Расчет времени облучения для цилиндрического диффузора</string>
+	<string name="cylindrical_diffuser_distance">Расстояние до поверхности</string>
 
 	<!-- Units -->
 	<string name="units_sm">см</string>
 	<string name="units_mvt">мВт</string>
 	<string name="units_joules_on_cm">Дж/см^2</string>
 	<string name="units_procent">%</string>
-	<string name="units_minute">мин</string>
-	<string name="units_second">сек</string>
+	<string name="units_minute"> %1$.3f мин</string>
+	<string name="units_second">%1$.3f сек</string>
 	<string name="units_ml">мл</string>
+	<string name="units_mm">мм</string>
 
 	<!-- Designation -->
 	<string name="designation_d">d = </string>

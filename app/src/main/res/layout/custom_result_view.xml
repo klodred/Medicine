@@ -7,7 +7,7 @@
 	android:gravity="center">
 
 	<androidx.constraintlayout.widget.ConstraintLayout
-		android:layout_width="wrap_content"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content">
 
 		<TextView
@@ -15,62 +15,35 @@
 			style="@style/S21BoldBlack"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
 			app:layout_constraintLeft_toLeftOf="parent"
 			app:layout_constraintTop_toTopOf="parent"
 			tools:text="@string/common_time" />
 
-		<LinearLayout
-			android:id="@+id/llMinuteContainer"
-			android:layout_width="wrap_content"
+		<TextView
+			android:id="@+id/tvMinuteValue"
+			style="@style/S21BoldBlack"
+			android:layout_width="0dp"
 			android:layout_height="wrap_content"
 			android:layout_marginHorizontal="16dp"
-			android:orientation="horizontal"
+			android:maxLines="2"
+			tools:text="13.6"
 			app:layout_constraintLeft_toRightOf="@id/tvTitle"
-			app:layout_constraintTop_toTopOf="parent">
+			app:layout_constraintRight_toRightOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
 
-			<TextView
-				android:id="@+id/tvMinuteValue"
-				style="@style/S21BoldBlack"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="13.6" />
-
-			<TextView
-				android:id="@+id/tvMinuteUnit"
-				style="@style/S21BoldBlack"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginStart="6dp"
-				android:text="@string/units_minute" />
-
-		</LinearLayout>
-
-		<LinearLayout
-			android:id="@+id/llSecondContainer"
+		<TextView
+			android:id="@+id/tvSecondValue"
+			style="@style/S21BoldBlack"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="10dp"
-			android:layout_weight="1"
-			android:orientation="horizontal"
-			app:layout_constraintLeft_toLeftOf="@id/llMinuteContainer"
-			app:layout_constraintTop_toBottomOf="@id/llMinuteContainer">
+			tools:text="13.6"
+			app:layout_constraintLeft_toLeftOf="@id/tvMinuteValue"
+			app:layout_constraintRight_toRightOf="@id/tvMinuteValue"
+			app:layout_constraintTop_toBottomOf="@id/tvMinuteValue" />
 
-			<TextView
-				android:id="@+id/tvSecondValue"
-				style="@style/S21BoldBlack"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="13.6" />
-
-			<TextView
-				android:id="@+id/tvSecondUnit"
-				style="@style/S21BoldBlack"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginStart="6dp"
-				android:text="@string/units_second" />
-
-		</LinearLayout>
 	</androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
+

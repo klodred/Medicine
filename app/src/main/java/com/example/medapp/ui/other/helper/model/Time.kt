@@ -1,9 +1,15 @@
 package com.example.medapp.ui.other.helper.model
 
 data class Time(
-	val minute: Double
+	var minute: Double? = null,
+	var second: Double? = null
 ) {
 	init {
-		val second = minute * 60
+		minute?.let {
+			second = it * 60
+		}
+		second?.let {
+			minute = it / 60
+		}
 	}
 }

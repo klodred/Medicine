@@ -1,17 +1,22 @@
 package com.example.medapp.ui.fragment.enddiffuser
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.medapp.R
 import com.example.medapp.components.AppContext
 import com.example.medapp.ui.fragment.enddiffuser.model.EndDiffuserInputValueType
+import com.example.medapp.ui.other.resources.ResourceProvider
 import kotlinx.android.synthetic.main.custom_input_view.*
 import kotlinx.android.synthetic.main.custom_input_view.view.*
+import kotlinx.android.synthetic.main.custom_result_view.*
+import kotlinx.android.synthetic.main.custom_result_view.view.*
 import kotlinx.android.synthetic.main.fragment_end_diffuser.*
 import javax.inject.Inject
 
@@ -21,6 +26,9 @@ class EndDiffuserFragment : Fragment() {
 	lateinit var viewModelFactory: ViewModelProvider.Factory
 
 	lateinit var viewModel: EndDiffuserViewModelInterface
+
+	@Inject
+	lateinit var resourceProvider: ResourceProvider
 
 	companion object {
 		private const val KEY_PARAMS = "KEY_PARAMS"
@@ -74,12 +82,12 @@ class EndDiffuserFragment : Fragment() {
 	//region ===================== UI ======================
 
 	private fun initUI(view: View) {
+		crvTime.isVisible = false
 		civLightSpot.etInputValue.addTextChangedListener {
 			try {
 				val value = it.toString().toDouble()
 				viewModel.changeInputValue(EndDiffuserInputValueType.DIAMETER_LIGHT_SPOT, value)
-			}
-			catch (e: NumberFormatException) {
+			} catch (e: NumberFormatException) {
 				viewModel.changeInputValue(EndDiffuserInputValueType.DIAMETER_LIGHT_SPOT, null)
 			}
 		}
@@ -88,8 +96,7 @@ class EndDiffuserFragment : Fragment() {
 			try {
 				val value = it.toString().toDouble()
 				viewModel.changeInputValue(EndDiffuserInputValueType.LASER_POWER, value)
-			}
-			catch (e: NumberFormatException) {
+			} catch (e: NumberFormatException) {
 				viewModel.changeInputValue(EndDiffuserInputValueType.LASER_POWER, null)
 			}
 		}
@@ -98,8 +105,7 @@ class EndDiffuserFragment : Fragment() {
 			try {
 				val value = it.toString().toDouble()
 				viewModel.changeInputValue(EndDiffuserInputValueType.TREATMENT_DOSE, value)
-			}
-			catch (e: NumberFormatException) {
+			} catch (e: NumberFormatException) {
 				viewModel.changeInputValue(EndDiffuserInputValueType.TREATMENT_DOSE, null)
 			}
 		}
@@ -108,30 +114,43 @@ class EndDiffuserFragment : Fragment() {
 			try {
 				val value = it.toString().toDouble()
 				viewModel.changeInputValue(EndDiffuserInputValueType.ENERGY_LOSS, value)
-			}
-			catch (e: NumberFormatException) {
+			} catch (e: NumberFormatException) {
 				viewModel.changeInputValue(EndDiffuserInputValueType.ENERGY_LOSS, null)
 			}
 		}
 
 		tvCalculate.setOnClickListener {
-
+			viewModel.calculate()
 		}
-		/*setupToolbar(
-			view,
-			null as String?,
-			R.drawable.ic_back_white_50_percent,
-			false,
-			btnBackClickListener
-		)*/
+
+		tvClear.setOnClickListener {
+			viewModel.clear()
+		}
 	}
 
 	private fun onObservedViewModel() {
 		viewModel.enabledButton.observe(viewLifecycleOwner) {
 			tvCalculate.isEnabled = it
 		}
+
+		viewModel.result.observe(viewLifecycleOwner) {
+			crvTime.isVisible = true
+			val minute = it.minute
+			val second = it.second
+			if (minute != null && second != null) {
+				tvMinuteValue.text = resourceProvider.getString(R.string.units_minute, minute)
+				tvSecondValue.text = resourceProvider.getString(R.string.units_second, second)
+			}
+		}
+
+		viewModel.clear.observe(viewLifecycleOwner) {
+			civLightSpot.etInputValue.text.clear()
+			civLaserPower.etInputValue.text.clear()
+			civTreatmentDose.etInputValue.text.clear()
+			civEnergyLoss.etInputValue.text.clear()
+			crvTime.isVisible = false
+		}
 	}
 
 	//endregion
-
 }
