@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
+
+	<TextView
+		android:id="@+id/tvDescription"
+		style="@style/S14MediumGrey25"
+		android:layout_marginStart="16dp"
+		tools:text="@string/end_diffuser_light_spot_diameter" />
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:orientation="horizontal">
+
+		<TextView
+			android:id="@+id/tvDesignation"
+			style="@style/S14MediumBlack"
+			android:layout_marginStart="16dp"
+			tools:text="d =" />
+
+		<EditText
+			android:id="@+id/etInputValue"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:layout_marginEnd="25dp"
+			android:layout_weight="1"
+			android:inputType="numberDecimal"/>
+
+		<TextView
+			android:id="@+id/tvUnit"
+			style="@style/S14MediumBlack"
+			android:layout_marginEnd="16dp"
+			android:layout_weight="0.1"
+			tools:text="@string/units_minute" />
+
+	</LinearLayout>
+
+</LinearLayout>

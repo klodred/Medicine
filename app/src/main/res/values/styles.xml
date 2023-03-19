@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<style name="Button" parent="@style/S16MediumBlack">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">50dp</item>
+		<item name="android:gravity">center</item>
+	</style>
+
+	<style name="GreenButton" parent="@style/Button">
+		<item name="android:background">@drawable/green_button_background</item>
+		<item name="android:textColor">@color/black</item>
+	</style>
+
+	<style name="RedButton" parent="@style/Button">
+		<item name="android:background">@drawable/red_button_background</item>
+		<item name="android:textColor">@color/black</item>
+	</style>
+
+	<style name="BlackButton" parent="@style/Button">
+		<item name="android:background">@drawable/black_button_background</item>
+		<item name="android:textColor">@color/white_85_percent_transparent</item>
+	</style>
+
+</resources>

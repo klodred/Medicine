@@ -1,0 +1,50 @@
+<resources>
+	<string name="app_name">MedApp</string>
+
+	<!-- MenuFragment -->
+	<string name="menu_end_diffuser_title">Торцевой</string>
+	<string name="menu_spherical_diffuser_title">Сферический</string>
+	<string name="menu_cylindrical_diffuser_title">Цилиндрический</string>
+
+	<!-- Common -->
+	<string name="common_laser_power">Мощность лазера</string>
+	<string name="common_treatment_dose">Лечебная доза</string>
+	<string name="common_energy_loss">Потеря энергии на светодиоде</string>
+	<string name="common_time">Время T = </string>
+	<string name="common_calculate">Рассчитать</string>
+	<string name="common_clear">Сбросить</string>
+
+	<!-- EndDiffuserFragment -->
+	<string name="end_diffuser_light_spot_diameter">Диаметр светового пятна</string>
+	<string name="end_diffuser_description">Расчет времени облучения для торцевого диффузора</string>
+
+	<!-- SphericalDiffuserFragment -->
+	<string name="spherical_diffuser_bubble_volume">Объем пузыря</string>
+	<string name="spherical_diffuser_description">Расчет времени облучения для сферического диффузора</string>
+	<string name="spherical_diffuser_bubble_volume_restrictions">*до 500 мл</string>
+	<string name="spherical_diffuser_treatment_dose_restrictions">*можно вводить любые значения, но стандартные 10, 12, 15</string>
+
+	<!-- CylindricalDiffuserFragment -->
+	<string name="cylindrical_diffuser_length">Длина диффузора</string>
+	<string name="cylindrical_diffuser_bubble_volume">Объем пузыря</string>
+	<string name="cylindrical_diffuser_description">Расчет времени облучения для цилиндрического диффузора</string>
+
+	<!-- Units -->
+	<string name="units_sm">см</string>
+	<string name="units_mvt">мВт</string>
+	<string name="units_joules_on_cm">Дж/см^2</string>
+	<string name="units_procent">%</string>
+	<string name="units_minute">мин</string>
+	<string name="units_second">сек</string>
+	<string name="units_ml">мл</string>
+
+	<!-- Designation -->
+	<string name="designation_d">d = </string>
+	<string name="designation_P">P = </string>
+	<string name="designation_D">D = </string>
+	<string name="designation_T">T = </string>
+	<string name="designation_V">V = </string>
+	<string name="designation_L">L = </string>
+	<string name="designation_R">R = </string>
+
+</resources>

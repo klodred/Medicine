@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<style name="BaseTextStyle" parent="android:Widget.TextView">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+	</style>
+
+	<!-- Text with sizes-->
+
+	<style name="S12" parent="BaseTextStyle">
+		<item name="android:textSize">@dimen/s12</item>
+	</style>
+
+	<style name="S13" parent="BaseTextStyle">
+		<item name="android:textSize">@dimen/s13</item>
+	</style>
+
+	<style name="S14" parent="BaseTextStyle">
+		<item name="android:textSize">@dimen/s14</item>
+	</style>
+
+	<style name="S16" parent="BaseTextStyle">
+		<item name="android:textSize">@dimen/s16</item>
+	</style>
+
+	<style name="S18" parent="BaseTextStyle">
+		<item name="android:textSize">@dimen/s18</item>
+	</style>
+
+	<style name="S19" parent="BaseTextStyle">
+		<item name="android:textSize">@dimen/s19</item>
+	</style>
+
+	<style name="S21" parent="BaseTextStyle">
+		<item name="android:textSize">@dimen/s21</item>
+	</style>
+
+	<style name="S22" parent="BaseTextStyle">
+		<item name="android:textSize">@dimen/s22</item>
+	</style>
+
+	<!--Text with fonts-->
+
+	<style name="S12Medium" parent="S12">
+		<item name="android:fontFamily">@string/sans_serif_medium</item>
+	</style>
+
+	<style name="S13Medium" parent="S13">
+		<item name="android:fontFamily">@string/sans_serif_medium</item>
+	</style>
+
+	<style name="S14Regular" parent="S14">
+		<item name="android:fontFamily">@string/sans_serif_regular</item>
+	</style>
+
+	<style name="S14Medium" parent="S14">
+		<item name="android:fontFamily">@string/sans_serif_medium</item>
+	</style>
+
+	<style name="S16Medium" parent="S16">
+		<item name="android:fontFamily">@string/sans_serif_medium</item>
+	</style>
+
+	<style name="S16Regular" parent="S16">
+		<item name="android:fontFamily">@string/sans_serif_regular</item>
+	</style>
+
+	<style name="S18Bold" parent="S18">
+		<item name="android:fontFamily">@string/sans_serif_regular</item>
+		<item name="android:textStyle">bold</item>
+	</style>
+
+	<style name="S19Bold" parent="S19">
+		<item name="android:fontFamily">@string/sans_serif_regular</item>
+		<item name="android:textStyle">bold</item>
+	</style>
+
+	<style name="S21Bold" parent="S21">
+		<item name="android:fontFamily">@string/sans_serif_regular</item>
+		<item name="android:textStyle">bold</item>
+	</style>
+
+	<style name="S22Bold" parent="S22">
+		<item name="android:fontFamily">@string/sans_serif_regular</item>
+		<item name="android:textStyle">bold</item>
+	</style>
+
+	<!-- Texts with colors -->
+
+	<style name="S12MediumGrey79" parent="S12Medium">
+		<item name="android:textColor">@color/grey_79</item>
+	</style>
+
+	<style name="S13MediumGrey79" parent="S13Medium">
+		<item name="android:textColor">@color/grey_79</item>
+	</style>
+
+	<style name="S14MediumBlack" parent="S14Medium">
+		<item name="android:textColor">@color/black</item>
+	</style>
+
+	<style name="S14MediumGrey79" parent="S14Medium">
+		<item name="android:textColor">@color/grey_79</item>
+	</style>
+
+	<style name="S14MediumGrey25" parent="S14Medium">
+		<item name="android:textColor">@color/grey_25</item>
+	</style>
+
+	<style name="S14RegularGrey25" parent="S14Regular">
+		<item name="android:textColor">@color/grey_25</item>
+	</style>
+
+	<style name="S14MediumGrey6B" parent="S14Medium">
+		<item name="android:textColor">@color/grey_6B</item>
+	</style>
+
+	<style name="S16MediumBlack" parent="S16Medium">
+		<item name="android:textColor">@color/black</item>
+	</style>
+
+	<style name="S16RegularBlack" parent="S16Regular">
+		<item name="android:textColor">@color/black</item>
+	</style>
+
+	<style name="S18BoldBlack" parent="S18Bold">
+		<item name="android:textColor">@color/black</item>
+	</style>
+
+	<style name="S19BoldBlack" parent="S19Bold">
+		<item name="android:textColor">@color/black</item>
+	</style>
+
+	<style name="S21BoldBlack" parent="S21Bold">
+		<item name="android:textColor">@color/black</item>
+	</style>
+
+	<style name="S22BoldBlack" parent="S22Bold">
+		<item name="android:textColor">@color/black</item>
+	</style>
+
+
+
+
+</resources>
