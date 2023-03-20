@@ -1,5 +1,5 @@
 <resources>
-	<string name="app_name">MedApp</string>
+	<string name="app_name">FDT</string>
 
 	<!-- MenuFragment -->
 	<string name="menu_end_diffuser_title">Торцевой</string>
@@ -34,11 +34,13 @@
 	<string name="units_sm">см</string>
 	<string name="units_mvt">мВт</string>
 	<string name="units_joules_on_cm">Дж/см^2</string>
+	<string name="units_vt_on_cm">Вт/см^2 = </string>
 	<string name="units_procent">%</string>
 	<string name="units_minute"> %1$.3f мин</string>
 	<string name="units_second">%1$.3f сек</string>
 	<string name="units_ml">мл</string>
 	<string name="units_mm">мм</string>
+	<string name="units_format_float_value">%1$.3f</string>
 
 	<!-- Designation -->
 	<string name="designation_d">d = </string>

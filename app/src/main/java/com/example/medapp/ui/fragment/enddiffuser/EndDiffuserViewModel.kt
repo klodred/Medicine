@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.medapp.ui.fragment.enddiffuser.model.EndDiffuserInputValueType
+import com.example.medapp.ui.model.CalculatedResult
 import com.example.medapp.ui.other.helper.CalculateHelper
 import com.example.medapp.ui.other.helper.model.EndDiffuserParams
 import com.example.medapp.ui.other.helper.model.Time
@@ -18,8 +19,8 @@ class EndDiffuserViewModel @Inject constructor(
 	private val _enabledButton = MutableLiveData<Boolean>()
 	override val enabledButton: LiveData<Boolean> = _enabledButton
 
-	private val _result = MutableLiveData<Time>()
-	override val result: LiveData<Time> = _result
+	private val _result = MutableLiveData<CalculatedResult>()
+	override val result: LiveData<CalculatedResult> = _result
 
 	private val _clear = MutableLiveData<Boolean>()
 	override val clear: LiveData<Boolean> = _clear
@@ -27,7 +28,7 @@ class EndDiffuserViewModel @Inject constructor(
 	private var diameterLightSpot: Double? = null
 	private var laserPower: Double? = null
 	private var treatmentDose: Double? = null
-	private var energyLoss: Double? = null
+	private var energyLoss: Double? = 0.0
 
 
 	init {
@@ -35,7 +36,7 @@ class EndDiffuserViewModel @Inject constructor(
 	}
 
 	override fun changeInputValue(type: EndDiffuserInputValueType, value: Double?) {
-		when(type) {
+		when (type) {
 			EndDiffuserInputValueType.DIAMETER_LIGHT_SPOT -> {
 				diameterLightSpot = value
 			}
@@ -57,13 +58,16 @@ class EndDiffuserViewModel @Inject constructor(
 	}
 
 	override fun calculate() {
-		_result.value = CalculateHelper.calculateEndDiffuser(
-			EndDiffuserParams(
-				diameterLightSpot = diameterLightSpot ?: return,
-				laserPower = laserPower ?: return,
-				treatmentDose = treatmentDose ?: return,
-				energyLoss = energyLoss ?: return
-			)
+		val data = EndDiffuserParams(
+			diameterLightSpot = diameterLightSpot ?: return,
+			laserPower = laserPower ?: return,
+			treatmentDose = treatmentDose ?: return,
+			energyLoss = energyLoss ?: return
+		)
+
+		_result.value = CalculatedResult(
+			time = CalculateHelper.calculateEndDiffuser(data),
+			vtOnSm = CalculateHelper.calculateVtOnSm(data)
 		)
 	}
 

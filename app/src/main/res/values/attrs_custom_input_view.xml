@@ -4,5 +4,6 @@
 		<attr name="description" format="string" />
 		<attr name="unit" format="string" />
 		<attr name="designation" format="string" />
+		<attr name="android:hint" format="string"/>
 	</declare-styleable>
 </resources>

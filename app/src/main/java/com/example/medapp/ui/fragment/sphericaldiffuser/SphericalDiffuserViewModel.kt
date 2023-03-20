@@ -30,7 +30,7 @@ class SphericalDiffuserViewModel @Inject constructor(
 	private var bubbleVolume: Double? = null
 	private var laserPower: Double? = null
 	private var treatmentDose: Double? = null
-	private var energyLoss: Double? = null
+	private var energyLoss: Double? = 0.0
 
 
 	init {

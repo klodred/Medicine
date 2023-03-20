@@ -29,7 +29,7 @@ class CylindricalDiffuserViewModel @Inject constructor(
 	private var laserPower: Double? = null
 	private var distance: Double? = null
 	private var treatmentDose: Double? = null
-	private var energyLoss: Double? = null
+	private var energyLoss: Double? = 0.0
 
 
 	init {

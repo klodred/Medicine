@@ -3,15 +3,19 @@ package com.example.medapp.ui.widget
 import android.content.Context
 import android.os.Parcelable
 import android.util.AttributeSet
-import android.util.Log
 import android.util.SparseArray
 import android.view.LayoutInflater
 import android.widget.LinearLayout
-import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import com.example.medapp.R
-import kotlinx.android.synthetic.main.custom_input_view.view.*
+import com.example.medapp.ui.other.resources.ResourceProviderImpl
+import kotlinx.android.synthetic.main.custom_vt_sm_view.view.*
 
-class CustomInputView : LinearLayout {
+class CustomVtSmView : LinearLayout {
+
+	companion object {
+		private const val BORDER_VALUE = 0.4
+	}
 
 	//region ===================== Constructors ======================
 
@@ -64,22 +68,23 @@ class CustomInputView : LinearLayout {
 
 	//region ===================== Public ======================
 
+	fun setInfo(value: Double) {
+		val resourceProvider = ResourceProviderImpl(context)
+		tvVtOnSm.text = resourceProvider.getString(R.string.units_format_float_value, value)
+		val color = if (value > BORDER_VALUE) {
+			ContextCompat.getColor(context, R.color.red_29)
+		} else {
+			ContextCompat.getColor(context, R.color.green_6C)
+		}
+		tvVtOnSm.setTextColor(color)
+	}
+
 	//endregion
 
 	//region ==================== Internal ====================
 
 	private fun init(attrs: AttributeSet?, defStyle: Int) {
-		LayoutInflater.from(context).inflate(R.layout.custom_input_view, this, true)
-
-		if (attrs != null && context != null) {
-			val attributes = context.theme.obtainStyledAttributes(
-				attrs, R.styleable.CustomInputView, 0, 0
-			)
-
-			tvDescription.text = attributes.getText(R.styleable.CustomInputView_description).toString()
-			tvUnit.text = attributes.getText(R.styleable.CustomInputView_unit).toString()
-			tvDesignation.text = attributes.getText(R.styleable.CustomInputView_designation).toString()
-		}
+		LayoutInflater.from(context).inflate(R.layout.custom_vt_sm_view, this, true)
 	}
 
 	//endregion

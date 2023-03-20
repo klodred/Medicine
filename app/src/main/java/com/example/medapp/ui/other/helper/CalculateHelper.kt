@@ -40,6 +40,11 @@ object CalculateHelper {
 		return (100 - data.energyLoss) / 100
 	}
 
+	fun calculateVtOnSm(data: EndDiffuserParams): Double {
+		val S = calculateS(data)
+		return (data.laserPower / 1000) / S
+	}
+
 	// calculate values for spherical diffuser
 
 	private fun calculateD(data: SphericalDiffuserParams): Double {

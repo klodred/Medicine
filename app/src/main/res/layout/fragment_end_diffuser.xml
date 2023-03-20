@@ -71,7 +71,8 @@
 			android:layout_marginTop="20dp"
 			app:description="@string/common_energy_loss"
 			app:designation=""
-			app:unit="@string/units_procent" />
+			app:unit="@string/units_procent"
+			/>
 
 		<TextView
 			android:id="@+id/tvCalculate"
@@ -101,6 +102,12 @@
 			android:layout_height="wrap_content"
 			android:layout_marginTop="20dp"
 			app:title="@string/common_time" />
+
+		<com.example.medapp.ui.widget.CustomVtSmView
+			android:id="@+id/vsvVtSm"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="20dp"/>
 
 	</LinearLayout>
 </androidx.core.widget.NestedScrollView>

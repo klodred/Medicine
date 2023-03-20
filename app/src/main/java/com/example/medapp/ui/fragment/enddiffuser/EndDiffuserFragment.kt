@@ -1,10 +1,13 @@
 package com.example.medapp.ui.fragment.enddiffuser
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import androidx.core.view.isEmpty
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
@@ -18,6 +21,13 @@ import kotlinx.android.synthetic.main.custom_input_view.view.*
 import kotlinx.android.synthetic.main.custom_result_view.*
 import kotlinx.android.synthetic.main.custom_result_view.view.*
 import kotlinx.android.synthetic.main.fragment_end_diffuser.*
+import kotlinx.android.synthetic.main.fragment_end_diffuser.civEnergyLoss
+import kotlinx.android.synthetic.main.fragment_end_diffuser.civLaserPower
+import kotlinx.android.synthetic.main.fragment_end_diffuser.civTreatmentDose
+import kotlinx.android.synthetic.main.fragment_end_diffuser.crvTime
+import kotlinx.android.synthetic.main.fragment_end_diffuser.tvCalculate
+import kotlinx.android.synthetic.main.fragment_end_diffuser.tvClear
+import kotlinx.android.synthetic.main.fragment_spherical_diffuser.*
 import javax.inject.Inject
 
 class EndDiffuserFragment : Fragment() {
@@ -83,6 +93,9 @@ class EndDiffuserFragment : Fragment() {
 
 	private fun initUI(view: View) {
 		crvTime.isVisible = false
+		vsvVtSm.isVisible = false
+		civEnergyLoss.etInputValue.setText("0")
+
 		civLightSpot.etInputValue.addTextChangedListener {
 			try {
 				val value = it.toString().toDouble()
@@ -115,11 +128,20 @@ class EndDiffuserFragment : Fragment() {
 				val value = it.toString().toDouble()
 				viewModel.changeInputValue(EndDiffuserInputValueType.ENERGY_LOSS, value)
 			} catch (e: NumberFormatException) {
-				viewModel.changeInputValue(EndDiffuserInputValueType.ENERGY_LOSS, null)
+				viewModel.changeInputValue(EndDiffuserInputValueType.ENERGY_LOSS, 0.0)
+			}
+		}
+
+		civEnergyLoss.etInputValue.setOnFocusChangeListener { view, hasFocus ->
+			if (!hasFocus) {
+				if (civEnergyLoss.etInputValue.text.isBlank()) {
+					civEnergyLoss.etInputValue.setText("0")
+				}
 			}
 		}
 
 		tvCalculate.setOnClickListener {
+			it.hideKeyboard()
 			viewModel.calculate()
 		}
 
@@ -135,21 +157,29 @@ class EndDiffuserFragment : Fragment() {
 
 		viewModel.result.observe(viewLifecycleOwner) {
 			crvTime.isVisible = true
-			val minute = it.minute
-			val second = it.second
+			vsvVtSm.isVisible = true
+			val minute = it.time.minute
+			val second = it.time.second
 			if (minute != null && second != null) {
 				tvMinuteValue.text = resourceProvider.getString(R.string.units_minute, minute)
 				tvSecondValue.text = resourceProvider.getString(R.string.units_second, second)
 			}
+			vsvVtSm.setInfo(it.vtOnSm)
 		}
 
 		viewModel.clear.observe(viewLifecycleOwner) {
 			civLightSpot.etInputValue.text.clear()
 			civLaserPower.etInputValue.text.clear()
 			civTreatmentDose.etInputValue.text.clear()
-			civEnergyLoss.etInputValue.text.clear()
+			civEnergyLoss.etInputValue.setText("0")
 			crvTime.isVisible = false
+			vsvVtSm.isVisible = false
 		}
+	}
+
+	fun View.hideKeyboard() {
+		val inputManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+		inputManager.hideSoftInputFromWindow(windowToken, 0)
 	}
 
 	//endregion
