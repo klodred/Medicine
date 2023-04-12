@@ -16,14 +16,15 @@ import com.example.medapp.ui.fragment.sphericaldiffuser.model.SphericalDiffuserV
 import com.example.medapp.ui.other.resources.ResourceProvider
 import kotlinx.android.synthetic.main.custom_input_view.view.*
 import kotlinx.android.synthetic.main.custom_result_view.*
-import kotlinx.android.synthetic.main.fragment_cylindrical_diffuser.*
 import kotlinx.android.synthetic.main.fragment_spherical_diffuser.*
 import kotlinx.android.synthetic.main.fragment_spherical_diffuser.civEnergyLoss
 import kotlinx.android.synthetic.main.fragment_spherical_diffuser.civLaserPower
 import kotlinx.android.synthetic.main.fragment_spherical_diffuser.civTreatmentDose
 import kotlinx.android.synthetic.main.fragment_spherical_diffuser.crvTime
+import kotlinx.android.synthetic.main.fragment_spherical_diffuser.llContainerS
 import kotlinx.android.synthetic.main.fragment_spherical_diffuser.tvCalculate
 import kotlinx.android.synthetic.main.fragment_spherical_diffuser.tvClear
+import kotlinx.android.synthetic.main.fragment_spherical_diffuser.tvValueS
 import javax.inject.Inject
 
 class SphericalDiffuserFragment : Fragment() {
@@ -90,6 +91,7 @@ class SphericalDiffuserFragment : Fragment() {
 
 	private fun initUI(view: View) {
 		crvTime.isVisible = false
+		llContainerS.isVisible = false
 		civEnergyLoss.etInputValue.setText("0")
 
 		civBubbleVolume.etInputValue.addTextChangedListener {
@@ -153,12 +155,14 @@ class SphericalDiffuserFragment : Fragment() {
 
 		viewModel.result.observe(viewLifecycleOwner) {
 			crvTime.isVisible = true
-			val minute = it.minute
-			val second = it.second
+			llContainerS.isVisible = true
+			val minute = it.time.minute
+			val second = it.time.second
 			if (minute != null && second != null) {
 				tvMinuteValue.text = resourceProvider.getString(R.string.units_minute, minute)
 				tvSecondValue.text = resourceProvider.getString(R.string.units_second, second)
 			}
+			tvValueS.text = resourceProvider.getString(R.string.units_sm_kv, it.S)
 		}
 
 		viewModel.clear.observe(viewLifecycleOwner) {
@@ -167,6 +171,7 @@ class SphericalDiffuserFragment : Fragment() {
 			civTreatmentDose.etInputValue.text.clear()
 			civEnergyLoss.etInputValue.setText("0")
 			crvTime.isVisible = false
+			llContainerS.isVisible = false
 		}
 	}
 

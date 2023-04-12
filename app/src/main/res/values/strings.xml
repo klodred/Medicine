@@ -16,7 +16,7 @@
 
 	<!-- EndDiffuserFragment -->
 	<string name="end_diffuser_light_spot_diameter">Диаметр светового пятна</string>
-	<string name="end_diffuser_description">Расчет времени облучения для торцевого диффузора</string>
+	<string name="end_diffuser_description">Расчет времени облучения для микролинзы</string>
 
 	<!-- SphericalDiffuserFragment -->
 	<string name="spherical_diffuser_bubble_volume">Объем мочевого пузыря</string>
@@ -41,6 +41,7 @@
 	<string name="units_ml">мл</string>
 	<string name="units_mm">мм</string>
 	<string name="units_format_float_value">%1$.3f</string>
+	<string name="units_sm_kv">%1$.3f см^2</string>
 
 	<!-- Designation -->
 	<string name="designation_d">d = </string>
@@ -50,5 +51,6 @@
 	<string name="designation_V">V = </string>
 	<string name="designation_L">L = </string>
 	<string name="designation_R">R = </string>
+	<string name="designation_S">S = </string>
 
 </resources>

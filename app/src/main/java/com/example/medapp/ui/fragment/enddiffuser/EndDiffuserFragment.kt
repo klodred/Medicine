@@ -16,10 +16,8 @@ import com.example.medapp.R
 import com.example.medapp.components.AppContext
 import com.example.medapp.ui.fragment.enddiffuser.model.EndDiffuserInputValueType
 import com.example.medapp.ui.other.resources.ResourceProvider
-import kotlinx.android.synthetic.main.custom_input_view.*
 import kotlinx.android.synthetic.main.custom_input_view.view.*
 import kotlinx.android.synthetic.main.custom_result_view.*
-import kotlinx.android.synthetic.main.custom_result_view.view.*
 import kotlinx.android.synthetic.main.fragment_end_diffuser.*
 import kotlinx.android.synthetic.main.fragment_end_diffuser.civEnergyLoss
 import kotlinx.android.synthetic.main.fragment_end_diffuser.civLaserPower
@@ -27,7 +25,6 @@ import kotlinx.android.synthetic.main.fragment_end_diffuser.civTreatmentDose
 import kotlinx.android.synthetic.main.fragment_end_diffuser.crvTime
 import kotlinx.android.synthetic.main.fragment_end_diffuser.tvCalculate
 import kotlinx.android.synthetic.main.fragment_end_diffuser.tvClear
-import kotlinx.android.synthetic.main.fragment_spherical_diffuser.*
 import javax.inject.Inject
 
 class EndDiffuserFragment : Fragment() {
@@ -94,6 +91,7 @@ class EndDiffuserFragment : Fragment() {
 	private fun initUI(view: View) {
 		crvTime.isVisible = false
 		vsvVtSm.isVisible = false
+		llContainerS.isVisible = false
 		civEnergyLoss.etInputValue.setText("0")
 
 		civLightSpot.etInputValue.addTextChangedListener {
@@ -158,6 +156,7 @@ class EndDiffuserFragment : Fragment() {
 		viewModel.result.observe(viewLifecycleOwner) {
 			crvTime.isVisible = true
 			vsvVtSm.isVisible = true
+			llContainerS.isVisible = true
 			val minute = it.time.minute
 			val second = it.time.second
 			if (minute != null && second != null) {
@@ -165,6 +164,8 @@ class EndDiffuserFragment : Fragment() {
 				tvSecondValue.text = resourceProvider.getString(R.string.units_second, second)
 			}
 			vsvVtSm.setInfo(it.vtOnSm)
+
+			tvValueS.text = resourceProvider.getString(R.string.units_sm_kv, it.S)
 		}
 
 		viewModel.clear.observe(viewLifecycleOwner) {
@@ -174,6 +175,7 @@ class EndDiffuserFragment : Fragment() {
 			civEnergyLoss.etInputValue.setText("0")
 			crvTime.isVisible = false
 			vsvVtSm.isVisible = false
+			llContainerS.isVisible = false
 		}
 	}
 

@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.medapp.ui.fragment.enddiffuser.model.EndDiffuserInputValueType
+import com.example.medapp.ui.fragment.sphericaldiffuser.model.CalculatedResult
 import com.example.medapp.ui.fragment.sphericaldiffuser.model.SphericalDiffuserValueType
 import com.example.medapp.ui.other.helper.CalculateHelper
 import com.example.medapp.ui.other.helper.model.EndDiffuserParams
@@ -21,8 +22,8 @@ class SphericalDiffuserViewModel @Inject constructor(
 	private val _enabledButton = MutableLiveData<Boolean>()
 	override val enabledButton: LiveData<Boolean> = _enabledButton
 
-	private val _result = MutableLiveData<Time>()
-	override val result: LiveData<Time> = _result
+	private val _result = MutableLiveData<CalculatedResult>()
+	override val result: LiveData<CalculatedResult> = _result
 
 	private val _clear = MutableLiveData<Boolean>()
 	override val clear: LiveData<Boolean> = _clear
@@ -38,7 +39,7 @@ class SphericalDiffuserViewModel @Inject constructor(
 	}
 
 	override fun changeInputValue(type: SphericalDiffuserValueType, value: Double?) {
-		when(type) {
+		when (type) {
 			SphericalDiffuserValueType.BUBBLE_VOLUME -> {
 				bubbleVolume = value
 			}
@@ -60,13 +61,15 @@ class SphericalDiffuserViewModel @Inject constructor(
 	}
 
 	override fun calculate() {
-		_result.value = CalculateHelper.calculateSphericalDiffuser(
-			SphericalDiffuserParams(
-				bubbleVolume = bubbleVolume ?: return,
-				laserPower = laserPower ?: return,
-				treatmentDose = treatmentDose ?: return,
-				energyLoss = energyLoss ?: return
-			)
+		val data = SphericalDiffuserParams(
+			bubbleVolume = bubbleVolume ?: return,
+			laserPower = laserPower ?: return,
+			treatmentDose = treatmentDose ?: return,
+			energyLoss = energyLoss ?: return
+		)
+		_result.value = CalculatedResult(
+			time = CalculateHelper.calculateSphericalDiffuser(data),
+			S = CalculateHelper.calculateS(data)
 		)
 	}
 

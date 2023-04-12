@@ -67,7 +67,8 @@ class EndDiffuserViewModel @Inject constructor(
 
 		_result.value = CalculatedResult(
 			time = CalculateHelper.calculateEndDiffuser(data),
-			vtOnSm = CalculateHelper.calculateVtOnSm(data)
+			vtOnSm = CalculateHelper.calculateVtOnSm(data),
+			S = CalculateHelper.calculateS(data)
 		)
 	}
 

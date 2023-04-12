@@ -32,7 +32,7 @@ object CalculateHelper {
 
 	// calculate values for end diffuser
 
-	private fun calculateS(data: EndDiffuserParams): Double {
+	fun calculateS(data: EndDiffuserParams): Double {
 		return 3.14 * data.diameterLightSpot * data.diameterLightSpot / 4
 	}
 
@@ -51,7 +51,7 @@ object CalculateHelper {
 		return cbrt(6 * data.bubbleVolume / 3.14)
 	}
 
-	private fun calculateS(data: SphericalDiffuserParams): Double {
+	fun calculateS(data: SphericalDiffuserParams): Double {
 		val d = calculateD(data)
 		return 3.14 * d * d
 	}

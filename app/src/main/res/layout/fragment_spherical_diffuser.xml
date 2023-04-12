@@ -4,6 +4,7 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:paddingTop="30dp"
+	xmlns:tools="http://schemas.android.com/tools"
 	app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 	<LinearLayout
@@ -117,6 +118,49 @@
 			android:layout_height="wrap_content"
 			android:layout_marginTop="20dp"
 			app:title="@string/common_time" />
+
+		<LinearLayout
+			android:id="@+id/llContainerS"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:orientation="vertical">
+
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:layout_marginTop="25dp"
+				android:background="@color/grey_1E" />
+
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="15dp">
+
+				<TextView
+					android:id="@+id/tvTitleS"
+					style="@style/S21BoldBlack"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="16dp"
+					android:text="@string/designation_S"
+					app:layout_constraintLeft_toLeftOf="parent"
+					app:layout_constraintTop_toTopOf="parent" />
+
+				<TextView
+					android:id="@+id/tvValueS"
+					style="@style/S21BoldBlack"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_marginHorizontal="16dp"
+					app:layout_constraintLeft_toRightOf="@id/tvTitleS"
+					app:layout_constraintRight_toRightOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					tools:text="13.6" />
+
+			</androidx.constraintlayout.widget.ConstraintLayout>
+
+		</LinearLayout>
 
 	</LinearLayout>
 
